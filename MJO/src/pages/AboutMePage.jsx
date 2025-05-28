@@ -19,33 +19,39 @@ function AboutMePage() {
 
       {/* Columna del contenido de texto */}
       <div className="about-me-content-container">
-        <h1>Hello, I'm John Panek.</h1>
+        <h1>Hola, soy J.R.R. Tolkien.</h1>
         <p>
-          A Rochester, NY-based Creative Lead and Graphic Designer with an eye for simplicity and a less is more design approach.
-          I believe in cutting through today's noisy visual landscape with efficient, digestible messaging.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
         </p>
         <p>
-          The projects you've seen here at JPSdesign.com represent about 2% of the work I've created in my career. 360°
-          marketing campaigns, full websites, photoshoots, video
-          shoots, keynote presentations, best practice awards, business
-          pitches, new hire interviews. You name it - I've done it.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
         </p>
         <p>
-          When I'm not driving the mouse, I'm busy researching the
-          latest market and design trends, ensuring our team delivers
-          easily-executable and innovative solutions for our clients.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
         </p>
         <p>
-          And when I'm not near the computer at all, I'm likely out for a
-          walk with my wife, Bridgette and our toy poodle, Oakley.
-          We've been known to hog the pickleball court.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
         </p>
         <p>
-          I also enjoy running, basketball, acoustic guitar, live concerts,
-          The Office, and the occasional hazy IPA.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
         </p>
         {/* En React, si usas React Router, usarías <Link> en lugar de <a> */}
-        <a href="/contact" className="contact-button">Contact Me</a>
+        <a href="/contacto" className="contact-button">Contact Me</a>
       </div>
     </div>
   );

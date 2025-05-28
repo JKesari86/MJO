@@ -14,12 +14,12 @@ function ContactPage() {
         {/* Usar una variable importada para la ruta de la imagen es la mejor práctica en React */}
         {/* <img src={phoneImage} alt="Teléfono rotatorio amarillo" /> */}
         {/* Temporalmente, si la imagen está en la carpeta 'public' o directamente accesible */}
-        <img src="/path/to/your/phone-image.png" alt="Teléfono rotatorio amarillo" />
+        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/09/senor-anillos-comunidad-anillo-palantir-saruman-2817717.jpg?tf=3840x" alt="Palantir" />
       </div>
 
       <div className="contact-form-container">
-        <h1>Get in Touch</h1>
-        <p className="subtitle">You've got a project. I've got ideas and 1TB of disc space. Let's make magic.</p>
+        <h1>Pongámonos en contacto</h1>
+        <p className="subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
 
         {/* El manejo de formularios en React se hace con estado (useState) y funciones onSubmit.
             Los atributos 'action' y 'method' del formulario HTML se suelen omitir en React. */}

@@ -10,8 +10,6 @@ function HomePage() {
 
       {/* Puedes añadir más secciones aquí para tu página de inicio */}
       <div className="my-5 text-center">
-        <h2>Bienvenido a mi Portafolio Esotérico</h2>
-        <p>Explora el arte y la magia.</p>
       </div>
     </>
   );
