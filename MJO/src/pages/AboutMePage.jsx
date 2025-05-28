@@ -1,38 +1,51 @@
-// src/pages/AboutMePage.jsx
 import React from 'react';
-// Si hay estilos CSS específicos para esta página que estaban en tu HTML original,
-// puedes copiarlos a un archivo src/pages/AboutMePage.css y luego importarlo aquí:
-// import './AboutMePage.css';
+import './AboutMePage.css'; // ¡Importa tu archivo CSS aquí!
 
 function AboutMePage() {
   return (
-    <div className="my-5"> 
-      <div className="container mt-4 mb-4"> 
-        <div className="row">
-         
-          <div className="col-12 col-md-6 mt-5 col-sm-12 col-lg-8 col-xl-8"> 
-            <h3 id="scrollspyHeading4">
-              <strong>J.R.R. Tolkien</strong>
-              <span className="text-secondary"><strong>Escritor</strong></span> 
-            </h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
-              accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
-              deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
-              distinctio vel dolorum magni.
-            </p>
+    // Hemos eliminado el div "my-5" original y lo hemos reemplazado con la estructura principal de la sección About Me
+    // para que los estilos de AboutMePage.css controlen el margen y el contenedor principal.
+    <div className="about-me-section">
+      {/* Columna de la imagen */}
+      <div className="profile-image-container">
+        {/*
+          La imagen de fondo se define en el CSS externo (AboutMePage.css)
+          Asegúrate de que la ruta de la imagen en tu CSS sea correcta (ej. url('/images/your-profile-picture.jpg') si está en public)
+          O si la importas directamente en JSX:
+          import profilePic from '../assets/your-profile-picture.jpg';
+          <img src={profilePic} alt="Tu foto de perfil" style={{ display: 'none' }} /> // Ocultar si solo es para que Webpack la procese
+        */}
+      </div>
 
-          </div>
-
-          <div className="col-12 col-md-6 col-sm-12 col-lg-4 col-xl-4"> 
-            <img
-              src="https://www.bosshunting.com.au/cdn-cgi/imagedelivery/izM8XxyLg9MD6py1ribxJw/www.bosshunting.com.au/2020/05/t1.jpg/w=9999"
-              width="420"
-              className="img-fluid" 
-              alt="Imagen de Tolkien"
-            />
-          </div>
-        </div>
+      {/* Columna del contenido de texto */}
+      <div className="about-me-content-container">
+        <h1>Hello, I'm John Panek.</h1>
+        <p>
+          A Rochester, NY-based Creative Lead and Graphic Designer with an eye for simplicity and a less is more design approach.
+          I believe in cutting through today's noisy visual landscape with efficient, digestible messaging.
+        </p>
+        <p>
+          The projects you've seen here at JPSdesign.com represent about 2% of the work I've created in my career. 360°
+          marketing campaigns, full websites, photoshoots, video
+          shoots, keynote presentations, best practice awards, business
+          pitches, new hire interviews. You name it - I've done it.
+        </p>
+        <p>
+          When I'm not driving the mouse, I'm busy researching the
+          latest market and design trends, ensuring our team delivers
+          easily-executable and innovative solutions for our clients.
+        </p>
+        <p>
+          And when I'm not near the computer at all, I'm likely out for a
+          walk with my wife, Bridgette and our toy poodle, Oakley.
+          We've been known to hog the pickleball court.
+        </p>
+        <p>
+          I also enjoy running, basketball, acoustic guitar, live concerts,
+          The Office, and the occasional hazy IPA.
+        </p>
+        {/* En React, si usas React Router, usarías <Link> en lugar de <a> */}
+        <a href="/contact" className="contact-button">Contact Me</a>
       </div>
     </div>
   );

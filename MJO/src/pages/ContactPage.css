@@ -1,0 +1,185 @@
+/* Estilos generales del body y reseteo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal de la sección de contacto (dos columnas) */
+.main-contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Contenedor de la imagen del teléfono (columna izquierda) */
+.contact-image-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fdf5e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 400px;
+}
+
+/* Contenedor del formulario de contacto (columna derecha) */
+.contact-form-container {
+    flex: 1.2;
+    min-width: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.name-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.name-fields .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.validation-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    /* Asegúrate de que esta ruta sea correcta para tu proyecto */
+    /* background-image: url('/path/to/your/smiley_icon.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+input[type="email"] {
+    padding-right: 40px;
+}
+
+button {
+    background-color: #444;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+@media (max-width: 768px) {
+    .main-contact-section {
+        flex-direction: column;
+        margin: 20px;
+        padding: 0;
+    }
+    .contact-image-container {
+        padding: 30px;
+        width: 100%;
+        min-width: unset;
+        order: 1;
+    }
+    .contact-form-container {
+        padding: 30px;
+        width: 100%;
+        min-width: unset;
+        order: 2;
+    }
+    .name-fields {
+        flex-direction: column;
+        gap: 0;
+    }
+    .name-fields .form-group {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    .subtitle {
+        font-size: 1em;
+    }
+    .contact-form-container, .contact-image-container {
+        padding: 20px;
+    }
+}

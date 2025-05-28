@@ -1,0 +1,115 @@
+/* Estilos generales del body y reseteo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Color de fondo general de la página */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal de la sección About Me (dos columnas) */
+.about-me-section {
+    display: flex; /* Habilita Flexbox para la disposición en dos columnas */
+    flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 40px auto; /* Centra el contenedor y añade margen vertical */
+    background-color: #fff; /* Fondo blanco para toda la sección */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    overflow: hidden; /* Asegura que la imagen con bordes redondeados no se desborde */
+}
+
+/* Contenedor de la imagen (columna izquierda) */
+.profile-image-container {
+    flex: 1; /* Permite que este elemento tome espacio flexible */
+    min-width: 400px; /* Ancho mínimo para la imagen antes de envolver */
+    /* La imagen se establece como background-image para que cubra el contenedor */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat;
+    /* ! IMPORTANTE: Reemplaza con la ruta real de tu imagen. */
+    /* Por ejemplo, si tu imagen está en 'src/assets/profile.jpg', puedes usar: */
+    /* background-image: url('../assets/profile.jpg'); */
+    /* O si está en la carpeta 'public': */
+    /* background-image: url('/images/profile.jpg'); */
+    background-image: url('path/to/your/profile-picture.jpg');
+}
+
+/* Contenedor del texto (columna derecha) */
+.about-me-content-container {
+    flex: 1.5; /* Este elemento toma más espacio que la imagen */
+    min-width: 400px; /* Ancho mínimo para el contenido de texto antes de envolver */
+    padding: 50px; /* Espacio interno del contenido */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+.about-me-content-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-me-content-container p {
+    font-size: 1em;
+    margin-bottom: 20px; /* Espacio entre párrafos */
+    color: #555;
+}
+
+.contact-button {
+    display: inline-block; /* Para que el padding y margin funcionen como bloque */
+    background-color: #444; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    text-decoration: none; /* Eliminar subrayado si es un enlace */
+    margin-top: 20px; /* Espacio superior para separarlo del texto */
+}
+
+.contact-button:hover {
+    background-color: #555; /* Color del botón al pasar el ratón */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 900px) {
+    .about-me-section {
+        flex-direction: column; /* Apilar la imagen y el texto verticalmente */
+        margin: 20px; /* Reducir margen en pantallas pequeñas */
+        padding: 0; /* Eliminar padding del contenedor principal si los hijos lo manejan */
+    }
+    .profile-image-container {
+        min-width: unset; /* Eliminar el min-width cuando se apila */
+        height: 350px; /* Altura fija para la imagen cuando está apilada */
+        width: 100%; /* Ocupa todo el ancho */
+        border-radius: 8px 8px 0 0; /* Bordes redondeados solo arriba */
+    }
+    .about-me-content-container {
+        min-width: unset; /* Eliminar el min-width cuando se apila */
+        padding: 30px; /* Ajustar padding del contenido cuando está apilado */
+        width: 100%; /* Ocupa todo el ancho */
+        border-radius: 0 0 8px 8px; /* Bordes redondeados solo abajo */
+    }
+    .about-me-content-container h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-me-content-container {
+        padding: 20px;
+    }
+    .about-me-content-container h1 {
+        font-size: 1.8em;
+    }
+    .about-me-content-container p {
+        font-size: 0.9em;
+    }
+    .contact-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
