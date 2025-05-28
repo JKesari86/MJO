@@ -1,0 +1,7 @@
+/* src/components/Footer.css (Recomendado para más especificidad) */
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none; /* Mover esta regla aquí para que solo afecte al ul dentro del footer */
+}

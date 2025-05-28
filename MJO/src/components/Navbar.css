@@ -1,0 +1,22 @@
+/* src/components/Navbar.css */
+/* Tu CSS original va aquí */
+.navbar-brand img {
+  width: 50px; /* Ajusta el ancho deseado */
+  height: 50px; /* Ajusta el alto deseado */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+}
+
+/* Si tienes más estilos globales de Bootstrap o personalizados, 
+   asegúrate de que estén disponibles en tu proyecto globalmente.
+   Los estilos específicos de este Navbar deben ir aquí. */
+
+/* Ejemplo si hubieras tenido más estilos específicos del navbar:
+.navbar {
+    background-color: #f8f9fa;
+    padding: 1rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+}
+*/

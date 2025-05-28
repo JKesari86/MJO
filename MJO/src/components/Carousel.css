@@ -1,0 +1,16 @@
+/* src/components/Carousel.css */
+
+.carousel-item img {
+  width: 400px;
+  height: 600px;
+  object-fit: contain;
+}
+
+#carouselExampleIndicators {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Estilo que movimos del HTML */
+.container-fluid h2 {
+  text-align: center;
+}
