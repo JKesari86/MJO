@@ -1,0 +1,55 @@
+/* src/components/WhatsAppButton.css */
+
+/*
+  Estilos para el botón de WhatsApp flotante.
+  Se posiciona de forma fija en la esquina inferior derecha de la pantalla.
+*/
+
+.whatsapp-float-button {
+  position: fixed; /* Mantiene el botón en la misma posición al hacer scroll */
+  bottom: 25px; /* Distancia desde la parte inferior */
+  right: 25px; /* Distancia desde el lado derecho */
+  background-color: #25D366; /* Color verde de WhatsApp */
+  color: #fff; /* Color del icono/texto blanco */
+  width: 60px; /* Ancho del botón */
+  height: 60px; /* Alto del botón (para que sea circular) */
+  border-radius: 50%; /* Hace el botón circular */
+  text-align: center; /* Centra el icono/texto */
+  font-size: 30px; /* Tamaño del icono */
+  line-height: 60px; /* Centra verticalmente el icono */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+  display: flex; /* Para centrar contenido con flexbox */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  text-decoration: none; /* Elimina el subrayado */
+  transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.whatsapp-float-button:hover {
+  background-color: #1DA851; /* Tono más oscuro de verde al pasar el ratón */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+  transform: translateY(-3px); /* Pequeño levantamiento */
+}
+
+/* Opcional: Estilos para el texto si decides añadirlo junto al icono */
+/*
+.whatsapp-float-button .button-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+*/
+
+/* Media Query para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+  .whatsapp-float-button {
+    width: 50px; /* Reduce el tamaño del botón en móviles */
+    height: 50px;
+    font-size: 24px; /* Reduce el tamaño del icono */
+    line-height: 50px;
+    bottom: 20px; /* Ajusta la posición en móviles */
+    right: 20px;
+  }
+}

@@ -1,0 +1,158 @@
+/* src/pages/TestimonialsPage.css */
+
+/* Contenedor principal de la página de testimonios */
+.testimonials-page-container {
+  max-width: 1000px; /* Ancho máximo para el contenido */
+  margin: 40px auto; /* Centra el contenedor y añade margen vertical */
+  padding: 20px; /* Espacio interno */
+  background-color: #fcfcfc; /* Un blanco muy suave */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos para el título principal de la página */
+.testimonials-page-container h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el párrafo introductorio (lead) */
+.testimonials-page-container .lead {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.25em;
+  color: #616161;
+  margin-bottom: 50px;
+  line-height: 1.8;
+}
+
+/* Mensaje cuando no hay testimonios */
+.empty-testimonials-message {
+  font-size: 1.1em;
+  color: #888;
+  padding: 50px 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+/* Contenedor de la grilla de testimonios */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas */
+  gap: 30px; /* Espacio entre tarjetas */
+  justify-content: center;
+}
+
+/* Estilos para cada tarjeta de testimonio individual */
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Encabezado del testimonio (imagen y nombre/compañía) */
+.testimonial-header {
+  display: flex;
+  flex-direction: column; /* Apila imagen y texto */
+  align-items: center; /* Centra horizontalmente */
+  margin-bottom: 20px;
+}
+
+/* Imagen del cliente en el testimonio */
+.testimonial-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%; /* Hace la imagen circular */
+  object-fit: cover;
+  border: 3px solid #4CAF50; /* Un borde para destacar */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Nombre del cliente */
+.testimonial-name {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Compañía del cliente */
+.testimonial-company {
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* Cita del testimonio */
+.testimonial-quote {
+  font-style: italic; /* Texto en cursiva */
+  font-size: 1.05em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Calificación de estrellas */
+.testimonial-rating {
+  font-size: 1.5em;
+  color: #f39c12; /* Color dorado para las estrellas */
+}
+
+.testimonial-rating .star.filled {
+  color: #f1c40f; /* Estrella rellena (dorada) */
+}
+
+.testimonial-rating .star {
+  color: #ccc; /* Estrella vacía (gris claro) */
+}
+
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .testimonials-page-container {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  .testimonials-page-container h1 {
+    font-size: 2.5em;
+  }
+  .testimonials-page-container .lead {
+    font-size: 1.1em;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .testimonial-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-page-container h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  .testimonials-page-container .lead {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móviles muy pequeños */
+  }
+}

@@ -1,0 +1,156 @@
+/* src/pages/PortfolioGridPage.css */
+
+/* Contenedor principal de la página de la grilla del portafolio */
+.portfolio-grid-page-container {
+  max-width: 1200px; /* Ancho máximo para el contenido */
+  margin: 40px auto; /* Centra el contenedor y añade margen vertical */
+  padding: 20px; /* Espacio interno */
+}
+
+/* Estilos para el título principal de la página */
+.portfolio-grid-page-container h1 {
+  font-size: 2.8em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el párrafo introductorio (lead) */
+.portfolio-grid-page-container .lead {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+
+/*
+  Contenedor de la grilla de proyectos.
+  Utiliza CSS Grid para crear un diseño responsivo de columnas.
+*/
+.portfolio-grid {
+  display: grid; /* Habilita CSS Grid */
+  /*
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    Crea columnas responsivas:
+    - auto-fit: Genera tantas columnas como quepan en el contenedor.
+    - minmax(300px, 1fr): Cada columna tendrá un ancho mínimo de 300px
+      y un máximo de 1 fracción del espacio disponible. Esto asegura
+      que las tarjetas no se compriman demasiado y se distribuyan equitativamente.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Espacio (gutter) entre las tarjetas de la grilla */
+  justify-content: center; /* Centra la grilla si hay espacio extra */
+}
+
+/* Estilos para el enlace de cada tarjeta de portafolio */
+.portfolio-card-link {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: inherit; /* Hereda el color de texto del padre */
+}
+
+/* Estilos para cada tarjeta de proyecto individual */
+.portfolio-card {
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+  overflow: hidden; /* Asegura que la imagen redondeada no se desborde */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para efectos hover */
+  display: flex; /* Flexbox para organizar imagen y contenido */
+  flex-direction: column; /* Contenido apilado verticalmente */
+  height: 100%; /* Asegura que las tarjetas tengan la misma altura si están en una fila */
+}
+
+/* Efecto hover para las tarjetas del portafolio */
+.portfolio-card:hover {
+  transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
+}
+
+/* Estilos para la imagen dentro de la tarjeta de portafolio */
+.portfolio-card-image {
+  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+  height: 220px; /* Altura fija para la imagen de la tarjeta */
+  object-fit: cover; /* La imagen cubre todo el espacio, recortando si es necesario */
+  display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+/* Contenido de texto dentro de la tarjeta */
+.portfolio-card-content {
+  padding: 20px; /* Espacio interno para el texto */
+  flex-grow: 1; /* Permite que el contenido crezca y empuje la meta al final */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el espacio entre título, descripción y meta */
+}
+
+/* Título del proyecto en la tarjeta */
+.portfolio-card-title {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Descripción corta del proyecto en la tarjeta */
+.portfolio-card-description {
+  font-size: 0.95em;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  /* Limita la descripción a un par de líneas y añade elipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Muestra máximo 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Meta información del proyecto (categoría, año) */
+.portfolio-card-meta {
+  font-size: 0.85em;
+  color: #888;
+  margin-top: auto; /* Empuja la meta al final del espacio disponible */
+}
+
+/* Media Queries para responsividad */
+
+/* Para pantallas más pequeñas que 768px (tablets y móviles) */
+@media (max-width: 768px) {
+  .portfolio-grid-page-container {
+    margin: 20px auto; /* Reduce el margen exterior */
+    padding: 15px;
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta el min-width de las columnas */
+    gap: 20px; /* Reduce el espacio entre tarjetas */
+  }
+  .portfolio-card-image {
+    height: 180px; /* Reduce la altura de la imagen en tarjetas */
+  }
+  .portfolio-card-content {
+    padding: 15px; /* Reduce el padding del contenido de la tarjeta */
+  }
+  .portfolio-card-title {
+    font-size: 1.3em;
+  }
+  .portfolio-card-description {
+    font-size: 0.9em;
+  }
+}
+
+/* Para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .portfolio-grid-page-container h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  .portfolio-grid-page-container .lead {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móviles muy pequeños */
+  }
+  .portfolio-card {
+    max-width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+  }
+}

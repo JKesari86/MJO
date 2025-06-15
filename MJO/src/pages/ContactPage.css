@@ -1,185 +1,109 @@
+/* src/pages/ContactPage.css */
+
+/*
+  Este archivo CSS contiene los estilos específicos para la página de Contacto (ContactPage.jsx).
+  Ahora se enfoca en un mensaje informativo y un botón de redirección.
+*/
+
 /* Estilos generales del body y reseteo */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-    color: #333;
-    line-height: 1.6;
+  font-family: Arial, sans-serif; /* Define la fuente de texto principal */
+  margin: 0; /* Elimina el margen predeterminado del body */
+  padding: 0; /* Elimina el padding predeterminado del body */
+  background-color: #f8f8f8; /* Color de fondo general de la página */
+  color: #333; /* Color de texto predeterminado */
+  line-height: 1.6; /* Altura de línea para una mejor legibilidad */
 }
 
-/* Contenedor principal de la sección de contacto (dos columnas) */
-.main-contact-section {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 40px auto;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+/* Contenedor principal del mensaje de contacto */
+.contact-page-message {
+  max-width: 800px;
+  margin: 80px auto; /* Margen superior e inferior para centrar verticalmente */
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  text-align: center;
 }
 
-/* Contenedor de la imagen del teléfono (columna izquierda) */
-.contact-image-container {
-    flex: 1;
-    min-width: 300px;
-    background-color: #fdf5e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.contact-page-message h1 {
+  font-size: 2.8em;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
-.contact-image-container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    max-height: 400px;
+.contact-page-message .lead {
+  font-size: 1.2em;
+  color: #616161;
+  margin-bottom: 30px;
 }
 
-/* Contenedor del formulario de contacto (columna derecha) */
-.contact-form-container {
-    flex: 1.2;
-    min-width: 350px;
-    padding: 40px;
-    box-sizing: border-box;
+.contact-page-message p {
+  font-size: 1.1em;
+  color: #7f8c8d;
+  margin-bottom: 15px;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #333;
+.contact-page-message a {
+  color: #28a745; /* Color verde para enlaces de correo */
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.subtitle {
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 40px;
+.contact-page-message a:hover {
+  text-decoration: underline;
 }
 
-.form-group {
-    margin-bottom: 20px;
-    position: relative;
+/* Estilos para el botón de redirección de WhatsApp dentro de la página */
+.whatsapp-redirect-button {
+  background-color: #28a745; /* Verde de WhatsApp */
+  border-color: #28a745;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+  transition: all 0.3s ease;
+  color: #fff !important; /* CORREGIDO: Color del texto blanco, forzado con !important */
 }
 
-label {
-    display: block;
-    font-size: 0.9em;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: bold;
+.whatsapp-redirect-button:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    box-sizing: border-box;
-    font-family: inherit;
-}
-
-.name-fields {
-    display: flex;
-    gap: 20px;
-}
-
-.name-fields .form-group {
-    flex: 1;
-    margin-bottom: 0;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.validation-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    pointer-events: none;
-    /* Asegúrate de que esta ruta sea correcta para tu proyecto */
-    /* background-image: url('/path/to/your/smiley_icon.png'); */
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-input[type="email"] {
-    padding-right: 40px;
-}
-
-button {
-    background-color: #444;
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-top: 30px;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
-    .main-contact-section {
-        flex-direction: column;
-        margin: 20px;
-        padding: 0;
-    }
-    .contact-image-container {
-        padding: 30px;
-        width: 100%;
-        min-width: unset;
-        order: 1;
-    }
-    .contact-form-container {
-        padding: 30px;
-        width: 100%;
-        min-width: unset;
-        order: 2;
-    }
-    .name-fields {
-        flex-direction: column;
-        gap: 0;
-    }
-    .name-fields .form-group {
-        margin-bottom: 20px;
-    }
+  .contact-page-message {
+    margin: 40px 20px;
+    padding: 30px;
+  }
+  .contact-page-message h1 {
+    font-size: 2.2em;
+  }
+  .contact-page-message .lead {
+    font-size: 1.1em;
+  }
+  .whatsapp-redirect-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2em;
-    }
-    .subtitle {
-        font-size: 1em;
-    }
-    .contact-form-container, .contact-image-container {
-        padding: 20px;
-    }
+  .contact-page-message {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .contact-page-message h1 {
+    font-size: 1.8em;
+  }
+  .contact-page-message .lead {
+    font-size: 1em;
+  }
+  .whatsapp-redirect-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
 }

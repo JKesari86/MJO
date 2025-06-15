@@ -1,17 +1,15 @@
 // src/pages/AdminPage.jsx
 import React, { useState, useEffect } from 'react';
-import initialPortfolioItems from '../data/portfolioItems'; 
+// REMOVIDO: import initialPortfolioItems from '../data/portfolioItems'; 
+// La lista de proyectos ahora viene de las props de App.jsx
 
-const LOCAL_STORAGE_KEY = 'designerPortfolioItems';
+// REMOVIDO: const LOCAL_STORAGE_KEY = 'designerPortfolioItems'; 
+// El manejo de localStorage se movió a App.jsx
 
-function AdminPage() {
-  const [portfolioItems, setPortfolioItems] = useState(() => {
-    const savedItems = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return savedItems ? JSON.parse(savedItems) : initialPortfolioItems;
-  });
-
+// AdminPage ahora acepta `portfolioItems` y `setPortfolioItems` como props
+function AdminPage({ portfolioItems, setPortfolioItems }) { 
   // Nuevo estado para el proyecto que se está editando
-  const [editingProject, setEditingProject] = useState(null); // Almacena el objeto del proyecto que se edita
+  const [editingProject, setEditingProject] = useState(null); 
   // Nuevo estado para saber si estamos en modo edición
   const [isEditing, setIsEditing] = useState(false); 
 
@@ -27,16 +25,11 @@ function AdminPage() {
     year: '',
   });
 
-  // useEffect para guardar los portfolioItems en localStorage cada vez que cambian
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(portfolioItems));
-  }, [portfolioItems]);
-
   // Efecto para precargar el formulario cuando editingProject cambie (modo edición)
   useEffect(() => {
     if (editingProject) {
       setFormData({
-        id: editingProject.id, // Aseguramos que el ID del formulario sea el del proyecto editado
+        id: editingProject.id, 
         title: editingProject.title,
         shortDescription: editingProject.shortDescription,
         fullDescription: editingProject.fullDescription,
@@ -45,11 +38,9 @@ function AdminPage() {
         location: editingProject.location,
         year: editingProject.year,
       });
-      setIsEditing(true); // Entramos en modo edición
-      // Opcional: Desplazar la vista al formulario
+      setIsEditing(true); 
       window.scrollTo({ top: 0, behavior: 'smooth' }); 
     } else {
-      // Si editingProject es null, reseteamos el formulario y salimos del modo edición
       setFormData({
         id: '',
         title: '',
@@ -60,10 +51,22 @@ function AdminPage() {
         location: '',
         year: '',
       });
-      setIsEditing(false); // Salimos del modo edición
+      setIsEditing(false); 
     }
   }, [editingProject]);
 
+  // *** AÑADIDO PARA DEPURACIÓN Y MANEJO SEGURO ***
+  // Observa qué proyectos está recibiendo este componente.
+  useEffect(() => {
+    console.log("AdminPage - portfolioItems recibidos:", portfolioItems);
+    // Si portfolioItems no es un array, loguea un error.
+    if (!Array.isArray(portfolioItems)) {
+      console.error("AdminPage - portfolioItems no es un array como se esperaba:", portfolioItems);
+    } else if (portfolioItems.length === 0) {
+      console.log("AdminPage - La lista de proyectos está vacía.");
+    }
+  }, [portfolioItems]);
+  // ******************************
 
   // Función para manejar cambios en los inputs del formulario
   const handleChange = (e) => {
@@ -80,27 +83,30 @@ function AdminPage() {
 
     // Validaciones básicas
     if (!formData.title || !formData.imageUrl || !formData.category) {
+      // ATENCIÓN: Reemplazar alert() con un modal personalizado de React para una mejor UX.
       alert('Por favor, completa al menos el Título, URL de Imagen y Categoría.');
       return;
     }
 
     if (isEditing) {
       // *** MODO EDICIÓN ***
+      // Llama a setPortfolioItems que viene de App.jsx para actualizar el estado global
       setPortfolioItems(prevItems => prevItems.map(item => 
         item.id === formData.id ? { ...formData, year: parseInt(formData.year) || new Date().getFullYear() } : item
       ));
+      // ATENCIÓN: Reemplazar alert() con un modal personalizado de React.
       alert('Proyecto actualizado exitosamente!');
       setEditingProject(null); // Sale del modo edición
     } else {
       // *** MODO AÑADIR NUEVO PROYECTO ***
-      let generatedId = formData.title.toLowerCase().replace(/\s+/g, '-') + '-' + Date.now(); // ID único basado en título y timestamp
+      let generatedId = formData.title.toLowerCase().replace(/\s+/g, '-') + '-' + Date.now(); 
 
-      // Asegurarse de que el ID es completamente único (aunque con timestamp es muy probable)
       let counter = 0;
       let uniqueId = generatedId;
-      while (portfolioItems.some(item => item.id === uniqueId)) {
+      // Asegurarse de que portfolioItems es un array antes de usar .some()
+      while (Array.isArray(portfolioItems) && portfolioItems.some(item => item.id === uniqueId)) {
           counter++;
-          uniqueId = `<span class="math-inline">\{generatedId\}\-</span>{counter}`;
+          uniqueId = `${generatedId}-${counter}`;
       }
       generatedId = uniqueId;
 
@@ -110,7 +116,9 @@ function AdminPage() {
         year: parseInt(formData.year) || new Date().getFullYear(),
       };
 
+      // Llama a setPortfolioItems que viene de App.jsx para actualizar el estado global
       setPortfolioItems(prevItems => [...prevItems, projectToAdd]);
+      // ATENCIÓN: Reemplazar alert() con un modal personalizado de React.
       alert('Proyecto añadido exitosamente!');
     }
 
@@ -128,17 +136,19 @@ function AdminPage() {
     setIsEditing(false); // Asegurarse de que no estamos en modo edición después de añadir
   };
 
-  // *** NUEVA FUNCIÓN: Manejar clic en botón "Editar" ***
+  // *** Manejar clic en botón "Editar" ***
   const handleEdit = (projectToEdit) => {
-    setEditingProject(projectToEdit); // Establece el proyecto a editar
+    setEditingProject(projectToEdit); 
   };
 
   // Manejar la eliminación de un proyecto
   const handleDelete = (idToDelete) => {
+    // ATENCIÓN: Reemplazar window.confirm() con un modal de confirmación personalizado de React.
     if (window.confirm('¿Estás seguro de que quieres eliminar este proyecto?')) {
+      // Llama a setPortfolioItems que viene de App.jsx para actualizar el estado global
       setPortfolioItems(prevItems => prevItems.filter(item => item.id !== idToDelete));
+      // ATENCIÓN: Reemplazar alert() con un modal personalizado de React.
       alert('Proyecto eliminado.');
-      // Si estamos editando el proyecto que se va a eliminar, reseteamos el formulario
       if (editingProject && editingProject.id === idToDelete) {
         setEditingProject(null);
       }
@@ -147,12 +157,12 @@ function AdminPage() {
 
   // Función para cancelar la edición
   const handleCancelEdit = () => {
-    setEditingProject(null); // Resetea el proyecto de edición
+    setEditingProject(null); 
   };
 
 
   return (
-    <div className="admin-page my-5">
+    <div className="admin-page my-5 container">
       <h1 className="text-center mb-4">Panel de Administración del Portafolio</h1>
       <p className="text-center lead">Aquí podrás gestionar tus proyectos de diseño de interiores.</p>
 
@@ -266,7 +276,8 @@ function AdminPage() {
       <div className="p-4 border rounded shadow-sm">
         <h2 className="mb-4">Proyectos Existentes</h2>
 
-        {portfolioItems.length === 0 ? (
+        {/* COMPROBACIONES DEFENSIVAS: Asegura que portfolioItems exista y sea un array */}
+        {(!portfolioItems || !Array.isArray(portfolioItems) || portfolioItems.length === 0) ? (
           <p className="text-center">No hay proyectos de portafolio cargados.</p>
         ) : (
           <div className="table-responsive">
@@ -281,7 +292,8 @@ function AdminPage() {
                 </tr>
               </thead>
               <tbody>
-                {portfolioItems.map((project, index) => (
+                {/* Asegúrate de que portfolioItems sea un array antes de mapear */}
+                {Array.isArray(portfolioItems) && portfolioItems.map((project, index) => (
                   <tr key={project.id}> 
                     <th scope="row">{index + 1}</th>
                     <td>{project.title}</td>
@@ -290,7 +302,7 @@ function AdminPage() {
                     <td>
                       <button 
                         className="btn btn-sm btn-info me-2"
-                        onClick={() => handleEdit(project)} // Llama a handleEdit con el objeto del proyecto
+                        onClick={() => handleEdit(project)} 
                       >
                         Editar
                       </button>

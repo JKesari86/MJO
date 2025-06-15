@@ -1,0 +1,82 @@
+/* src/pages/HomePage.css */
+
+/*
+  Este archivo contendrá estilos específicos para la HomePage.
+  Por ahora, se enfoca en hacer el botón de Call to Action más llamativo.
+*/
+
+.cta-button {
+  /* Estilos base del botón */
+  display: inline-block; /* Para aplicar padding y transformaciones */
+  padding: 15px 35px; /* Más padding para un botón más grande */
+  font-size: 1.2em; /* Texto un poco más grande */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Convertir texto a mayúsculas */
+  border-radius: 50px; /* Bordes muy redondeados (pastilla) */
+  text-decoration: none; /* Quitar subrayado del enlace */
+  cursor: pointer; /* Cursor de mano */
+  border: none; /* Sin borde */
+  
+  /* Gradiente de fondo atractivo */
+  background-image: linear-gradient(to right, #4CAF50 0%, #8BC34A 100%); /* Verde claro a oscuro */
+  color: #fff; /* Color del texto blanco */
+  
+  /* Sombra más pronunciada para darle profundidad */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+  
+  /* Transiciones suaves para los efectos hover */
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  /* Cambio de gradiente o tono al pasar el ratón */
+  background-image: linear-gradient(to right, #8BC34A 0%, #4CAF50 100%); 
+  /* Levantamiento sutil */
+  transform: translateY(-3px);
+  /* Sombra más intensa al pasar el ratón */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:active {
+  /* Efecto de "presionado" */
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Opcional: Estilos para el texto de bienvenida si quieres más énfasis */
+.home-page-heading {
+  font-family: 'Montserrat', sans-serif; /* O alguna otra fuente impactante */
+  font-size: 3.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.home-page-lead {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Media Queries para responsividad del botón */
+@media (max-width: 768px) {
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 1em;
+    border-radius: 40px;
+  }
+  .home-page-heading {
+    font-size: 2.8em;
+  }
+  .home-page-lead {
+    font-size: 1.1em;
+  }
+}
