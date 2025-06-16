@@ -1,31 +1,25 @@
+// src/pages/AboutMePage.jsx
+
 import React from 'react';
-import './AboutMePage.css'; // ¡Importa tu archivo CSS aquí!
+import './AboutMePage.css';
+import { Link } from 'react-router-dom';
+// IMPORTA LA IMAGEN DE PERFIL LOCALMENTE
+import profileImage from '../assets/images/profile.jpg'; // Asegúrate de que esta ruta y nombre de archivo sean correctos
 
 function AboutMePage() {
   return (
-    // Hemos eliminado el div "my-5" original y lo hemos reemplazado con la estructura principal de la sección About Me
-    // para que los estilos de AboutMePage.css controlen el margen y el contenedor principal.
     <div className="about-me-section">
-      {/* Columna de la imagen */}
-      <div className="profile-image-container">
-        {/*
-          La imagen de fondo se define en el CSS externo (AboutMePage.css)
-          Asegúrate de que la ruta de la imagen en tu CSS sea correcta (ej. url('/images/your-profile-picture.jpg') si está en public)
-          O si la importas directamente en JSX:
-          import profilePic from '../assets/your-profile-picture.jpg';
-          <img src={profilePic} alt="Tu foto de perfil" style={{ display: 'none' }} /> // Ocultar si solo es para que Webpack la procese
-        */}
+      <div 
+        className="profile-image-container"
+        // APLICA LA IMAGEN COMO ESTILO EN LÍNEA USANDO LA VARIABLE IMPORTADA
+        style={{ backgroundImage: `url(${profileImage})` }}
+      >
+        {/* La imagen de fondo ahora se define aquí en JSX */}
+        {/* No se necesita una etiqueta <img> aquí si solo es para el fondo */}
       </div>
 
-      {/* Columna del contenido de texto */}
       <div className="about-me-content-container">
-        <h1>Hola, soy J.R.R. Tolkien.</h1>
-        <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
-          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
-          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
-          distinctio vel dolorum magni.
-        </p>
+        <h1>Hola, soy María José Labra.</h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
           accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
@@ -50,8 +44,13 @@ function AboutMePage() {
           deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
           distinctio vel dolorum magni.
         </p>
-        {/* En React, si usas React Router, usarías <Link> en lugar de <a> */}
-        <a href="/contacto" className="contact-button">Contact Me</a>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          accusamus! Earum ullam harum facere voluptas. Delectus ullam, nulla
+          deleniti amet, porro deserunt expedita aperiam cupiditate ducimus
+          distinctio vel dolorum magni.
+        </p>
+        <Link to="/contacto" className="contact-button">Contact Me</Link>
       </div>
     </div>
   );
