@@ -93,7 +93,7 @@ function Navbar() {
               </Link>
             </li>
             {/* Si quieres que la página de administración sea visible en la navbar, descomenta esto */}
-            {/*
+            
             <li className="nav-item">
               <Link
                 className={`nav-link ${isActive('/admin') ? 'active' : ''}`}
@@ -102,7 +102,7 @@ function Navbar() {
                 Admin
               </Link>
             </li>
-            */}
+           
           </ul>
         </div>
       </div>
